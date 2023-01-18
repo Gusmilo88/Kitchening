@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchening | Registrar</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
+</head>
+<body class="register">
+    <!-- encabezado -->
+  <header class="header">
+    
+    <a href="/"> <img class="header__logo" src="/images/logo.jpg" alt=""></a>
+   
+    <button class="header__hamburger">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav class="header__nav">
+        <ul class="header__nav--menu">
+            <li><a href="/">cursos</a></li>
+            <li><a href="/buscar">buscar</a></li>
+        </ul>
+        <ul class="header__nav--user">
+            <li><a href="/registrar">registrar</a></li>
+            <li><a href="/ingresar">ingresar</a></li>
+        </ul>
+    </nav>
+  </header>
+  <!-- principal -->
+  <main class="register__main">
+    <section class="register__main__section">
+        <article class="register__main__section__article">
+          
+          
+            <form action="">
+                <div class="form__header">
+                    <h1>Registrate</h1>
+                    <hr>
+                </div>
+                <div class="form__box">
+                    <input type="text" placeholder="Nombre" name="name" id="name">
+                </div>
+                <div class="form__box">
+                    <input type="text" placeholder="Apellido" name="surname" id="surname">
+                </div>
+                <div class="form__box">
+                    <input type="email" placeholder="Email" name="email" id="email">
+                </div>
+                <div class="form__box">
+                    <input type="password" placeholder="Contraseña" name="password" id="password">
+                </div>
+                <div class="form__box">
+                    <input type="password" placeholder="Confirma contraseña" name="password2" id="password2">
+                </div>
+                <div class="form__box--buttons">
+                    <button class="buttons buttons__secondary" type="reset">Borrar</button>
+                    <button class="buttons buttons__primary" type="submit">Enviar</button>
+                </div>
+                <div class="form__footer">
+                    <small>¿Estás registrado? <a href="/ingresar">Ingresá</a></small> 
+                </div>
+                
+            </form>
+        </article>
+    </section>
+  </main>
+  <!-- pie de pagina -->
+  <footer class="footer">
+    <nav class="footer__nav">
+        <ul class="footer__nav--menu">
+            <li><a href="/">home</a></li>
+            <li><a href="/quienes">quienes</a></li>
+            <li><a href="/servicios">servicios</a></li>
+            <li><a href="/portfolio">portfolio</a></li>
+            <li><a href="/sucursales">sucursales</a></li>
+            <li><a href="/contacto">contacto</a></li>
+        </ul>
+    </nav>
+  </footer>
+</body>
+</html>
