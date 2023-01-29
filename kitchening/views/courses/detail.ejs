@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head')  %> 
+<body>
+    <%- include('../partials/header')  %> 
+    <main>
+      
+        <h1>
+        Detalle del curso: <%= course.id %> 
+        </h1>
+        
+         <div class="ps-row ps-padding-64" id="menu">
+        <div class="ps-col l6 ps-padding-large">
+          <h1 class="ps-center"><%= course.title %> </h1>
+          <br />
+          <h4><%= course.description %> </h4>
+          <p class="ps-text-grey">
+            $ <%= course.price %> 
+          </p>
+        </div>
+
+        <div class="ps-col l6 ps-padding-large ps-img-menu">
+          <img
+            src="/images/cursos/<%= course.image %> "
+            class="ps-round ps-image ps-opacity-min"
+            alt="Menu"
+          />
+        </div>
+      </div>
+        
+    </main>
+    <%- include('../partials/footer')  %> 
+    <%- include('../partials/scripts')  %> 
+</body>
+</html>

@@ -1,33 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchening | Ingresar</title>
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
-</head>
+
+    <%- include("./partials/head") %>
+    
 <body class="login">
     <!-- encabezado -->
-  <header class="header">
-    
-    <a href="/"> <img class="header__logo" src="/images/logo.jpg" alt=""></a>
-   
-    <button class="header__hamburger">
-        <i class="fas fa-bars"></i>
-    </button>
-    <nav class="header__nav">
-        <ul class="header__nav--menu">
-            <li><a href="/">cursos</a></li>
-            <li><a href="/buscar">buscar</a></li>
-        </ul>
-        <ul class="header__nav--user">
-            <li><a href="/registrar">registrar</a></li>
-            <li><a href="/ingresar">ingresar</a></li>
-        </ul>
-    </nav>
-  </header>
+  
+    <%- include("./partials/header") %>
+
   <!-- principal -->
   <main class="login__main">
     <section class="login__main__section">
@@ -64,17 +44,8 @@
     </section>
   </main>
   <!-- pie de pagina -->
-  <footer class="footer">
-    <nav class="footer__nav">
-        <ul class="footer__nav--menu">
-            <li><a href="/">home</a></li>
-            <li><a href="/quienes">quienes</a></li>
-            <li><a href="/servicios">servicios</a></li>
-            <li><a href="/portfolio">portfolio</a></li>
-            <li><a href="/sucursales">sucursales</a></li>
-            <li><a href="/contacto">contacto</a></li>
-        </ul>
-    </nav>
-  </footer>
+  
+  <%- include("./partials/footer") %> 
+  
 </body>
 </html>

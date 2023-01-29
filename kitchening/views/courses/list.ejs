@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>  
+
+<body class="home">
+    
+<%- include('../partials/header') %>  
+
+    <main class="home_main">
+            <div class="titulo">
+                <h1><%= title %> </h1>
+                
+            </div>
+        
+        
+        <div>
+            <section class="home_main_section--productos">     
+                <% courses.forEach(({id,title,description,price,image,chef}) => { %>
+                <article class="home_main_section_article">
+                    <div class="home_main_section_article--images">
+                        <img class="home_main_section_article--images-producto" src="/images/cursos/<%= image %> " alt="producto-1">
+                        <img class="home_main_section_article--images-sticker" src="/images/new.jpeg" alt="new">
+                        <a class="home_main_section_article--images-zoom" href="/ampliar Foto">Ampliar Foto</a>
+                    </div>
+                    <div class="home_main_section_article--contenido">
+                    <h4> <%= title %> </h4>
+                    <p> <%= description %>  </p>
+                    <a href="/courses/detail/<%= id %> ">Ver Más</a>
+                    </div>
+                </article>
+                <% }) %>
+            </section>
+        </div>
+        <div>
+            O elije el turno que más te convenga:
+            <ul class="astros">
+                <% categories.forEach(({id}) => { %>
+                    <a href="../courses/category/<%= id %> "><i class="fa-solid fa-sun"><%= id%> </i></a>
+                    <a href="../courses/category/<%= id %>"><i class="fa-solid fa-moon"><%= id %></i></a>
+                <% }) %>                   
+            </ul> 
+        </div>
+    </main>
+ 
+<%- include('../partials/footer') %>     
+<%- include('../partials/scripts')  %> 
+</body>
+</html>
