@@ -1,11 +1,13 @@
-const express = require('express');
-const { detail,list,category } = require('../controllers/coursesController');
+const express =require('express');
 const router = express.Router();
 
+const {list,detail} = require('../controllers/courseController');
+
 /* /courses */
+
 router
-    .get('/detail/:id', detail)
-    .get('/list', list)
-    .get('/category/:idCategory', category)
+    .get('/list',list)
+    .get('/detail/:id',detail)
+
 
 module.exports = router;

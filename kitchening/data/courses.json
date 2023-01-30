@@ -1,18 +1,20 @@
 [
     {
         "id" : 1,
-        "title" : "Sushi profesional",
-        "price" : 10530,
-        "description" : "Con una gran experiencia Roberto Nishida te enseña los secretos de las técnicas básicas en la elaboración del sushi, vas a descubrir la importancia de cada ingrediente para que realices una gran variedad de rolls, sashimis y niguiris.",
+        "titulo" : "SUSHI PROFESIONAL",
+        "precio" : 10.530,
+        "descripcion" : "Preparación de todo tipo de sushi, incluyendo maki, nigiri y sashimi. Seleccionar frutas y verduras frescas para elaborar platos de alta calidad (incluyendo aguacate, mango y zanahorias)",
         "image" : "curso03.jpg",
-        "chef" : "Roberto Nishida"
+        "chef" : "Nishida Roberto"
+
     },
     {
         "id" : 2,
-        "title" : "ABC de la cocina",
-        "price" : 10530,
-        "description" : "Tu comida puede transformarse en platos de restaurante de la mano de Guillermo Calabrese que te enseñará a combinar ingredientes simples con productos gourmet para darle un sabor distinto a tus recetas.",
-        "image" : "abc.jpg",
+        "titulo" : "ABC DE LA COCINA",
+        "precio" : 10530,
+        "descripcion" : "Conocer los utensilios básicos de cocina y aprender su correcto uso. Preparaciones. Preparaciones con cordero, trucha, salmón, langostinos, ostras. Elaboración ...",
+        "image" : "curso06.jpg",
         "chef" : "Guillermo Calabrese"
     }
+    
 ]

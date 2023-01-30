@@ -1,51 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include("./partials/head") %>
-    
-<body class="login">
-    <!-- encabezado -->
-  
-    <%- include("./partials/header") %>
+<%- include('../partials/head') %>
 
-  <!-- principal -->
-  <main class="login__main">
-    <section class="login__main__section">
-        <article class="login__main__section__article">
-          
-          
-            <form action="">
-                <div class="form__header">
-                    <h1>Ingresá</h1>
-                    <hr>
+  <body class="home">
+    <!-- encabezado -->
+    <%- include('../partials/header') %>
+
+      <!-- principal -->
+      <main class="login__main">
+        <div class="row mb-5">
+            <div class="col-12 col-md-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h5 class="card-title">Login de Usuario</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                              </div>
+                              <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                              </div>
+                              <button type="submit" class="buttons buttons__primary">Ingresar</button>
+                        </form>
+                      
+                    </div>
                 </div>
-               
-                <div class="form__box">
-                    <input type="email" placeholder="Email" name="email" id="email">
-                </div>
-                <div class="form__box">
-                    <input type="password" placeholder="Contraseña" name="password" id="password">
-                    <small><a href="">Olvidé mi contraseña</a></small> 
-                </div>
-                <div class="form__box--remember">
-                    <input id="remember" name="remember" type="checkbox">
-                    <label class="form__label" for="remember">Recordame</label>
-                </div>
-                <div class="form__box--buttons">
-                    <button class="buttons buttons__primary" type="submit">Enviar</button>
-                </div>
-                <div class="form__footer">
-                    <small>¿No estás registrado? <a href="/registrar">Registrate</a></small> 
-                </div>
-                
-                
-            </form>
-        </article>
-    </section>
-  </main>
-  <!-- pie de pagina -->
-  
-  <%- include("./partials/footer") %> 
-  
-</body>
+            </div>
+        </div>
+      </main>
+
+
+      <%- include('../partials/footer') %>
+
+
+        <%- include('../partials/scripts') %>
+
+          <script src="/javascripts/home.js"></script>
+
+  </body>
+
 </html>

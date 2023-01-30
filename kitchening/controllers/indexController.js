@@ -1,10 +1,8 @@
-const courses = require('../data/courses.json')
-module.exports={
+module.exports = {
     home : (req, res) => {
-     return res.render('home', {
-     title : "Kitchening | HOME",
-     courses
-    });
-    }
-    
+        /* toda la lógica!!! */
+        return res.render('home',{
+          title : "Kitchening | Home"
+        });
+      }
 }

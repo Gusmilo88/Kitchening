@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head')  %> 
+    <%- include('../partials/head') %>
 <body>
-    <%- include('../partials/header')  %> 
-    <main>
-      
-        <h1>
-        Detalle del curso: <%= course.id %> 
-        </h1>
-        
-         <div class="ps-row ps-padding-64" id="menu">
-        <div class="ps-col l6 ps-padding-large">
-          <h1 class="ps-center"><%= course.title %> </h1>
-          <br />
-          <h4><%= course.description %> </h4>
-          <p class="ps-text-grey">
-            $ <%= course.price %> 
-          </p>
+    <%- include('../partials/header') %>
+    <h2>Detalle del curso:</h2> 
+    <article class="home__main__section__article animate__animated">
+        <div class="home__main__section__article--imagen">
+          <img class="home__main__section__article--imagen-product" src="/images/cursos/<%= course.image %> " alt="">
+          <img class="home__main__section__article--imagen-sticker" src="/images/img-nuevo.png" alt="">
+          <a class="home__main__section__article--imagen-zoom" href="">ampliar foto</a>
         </div>
+        <div class="home__main__section__article--contenido">
+          <h4> <%= course.titulo %>  </h4>
+          <p><%= course.descripcion %> </p>
+        </div>
+      </article>
+    
+    <%- include('../partials/whatsApp') %>
 
-        <div class="ps-col l6 ps-padding-large ps-img-menu">
-          <img
-            src="/images/cursos/<%= course.image %> "
-            class="ps-round ps-image ps-opacity-min"
-            alt="Menu"
-          />
-        </div>
-      </div>
-        
-    </main>
-    <%- include('../partials/footer')  %> 
-    <%- include('../partials/scripts')  %> 
+    <%- include('../partials/footer') %>
+
+
+    <%- include('../partials/scripts') %>
+
+      <script src="/javascripts/home.js"></script>
 </body>
 </html>

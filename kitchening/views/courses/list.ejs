@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head') %>  
+<%- include('../partials/head') %>
 
-<body class="home">
-    
-<%- include('../partials/header') %>  
+  <body class="home">
+    <!-- encabezado -->
+    <%- include('../partials/header') %>
 
-    <main class="home_main">
-            <div class="titulo">
-                <h1><%= title %> </h1>
-                
+      <!-- principal -->
+      <main class="home__main">
+     
+        <!-- productos -->
+        <section class="home__main__section--productos">
+         <% courses.forEach(({titulo, precio, descripcion,chef,image,id}) => { %>
+          <article class="home__main__section__article animate__animated">
+            <div class="home__main__section__article--imagen">
+              <img class="home__main__section__article--imagen-product" src="/images/cursos/<%= image %> " alt="">
+              <img class="home__main__section__article--imagen-sticker" src="/images/img-nuevo.png" alt="">
+              <a class="home__main__section__article--imagen-zoom" href="">ampliar foto</a>
             </div>
+            <div class="home__main__section__article--contenido">
+              <h4> <%= titulo %>  </h4>
+              <p><%= descripcion %> </p>
+              <a href="/courses/detail/<%= id %>">ver más</a>
+            </div>
+          </article>
+         <% }) %>
+
         
-        
-        <div>
-            <section class="home_main_section--productos">     
-                <% courses.forEach(({id,title,description,price,image,chef}) => { %>
-                <article class="home_main_section_article">
-                    <div class="home_main_section_article--images">
-                        <img class="home_main_section_article--images-producto" src="/images/cursos/<%= image %> " alt="producto-1">
-                        <img class="home_main_section_article--images-sticker" src="/images/new.jpeg" alt="new">
-                        <a class="home_main_section_article--images-zoom" href="/ampliar Foto">Ampliar Foto</a>
-                    </div>
-                    <div class="home_main_section_article--contenido">
-                    <h4> <%= title %> </h4>
-                    <p> <%= description %>  </p>
-                    <a href="/courses/detail/<%= id %> ">Ver Más</a>
-                    </div>
-                </article>
-                <% }) %>
-            </section>
-        </div>
-        <div>
-            O elije el turno que más te convenga:
-            <ul class="astros">
-                <% categories.forEach(({id}) => { %>
-                    <a href="../courses/category/<%= id %> "><i class="fa-solid fa-sun"><%= id%> </i></a>
-                    <a href="../courses/category/<%= id %>"><i class="fa-solid fa-moon"><%= id %></i></a>
-                <% }) %>                   
-            </ul> 
-        </div>
-    </main>
- 
-<%- include('../partials/footer') %>     
-<%- include('../partials/scripts')  %> 
-</body>
+         
+        </section>
+           <!-- botón de whatsapp -->
+
+        <%- include('../partials/whatsApp') %>
+
+      </main>
+      <!-- pie de pagina -->
+
+      <%- include('../partials/footer') %>
+
+
+        <%- include('../partials/scripts') %>
+
+          <script src="/javascripts/home.js"></script>
+
+  </body>
+
 </html>
