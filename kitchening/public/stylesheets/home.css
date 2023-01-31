@@ -83,6 +83,10 @@
         width: 48%;
     }
 
+    .home__main__section--courses .carousel-courses-item{
+        height: 40vh;
+    }
+
 }
 
 @media (min-width:1180px) {
@@ -90,5 +94,8 @@
         width: 32%;      
     }
 
+    .home__main__section--courses .carousel-courses-item{
+        height: 40vh;
+    }
 }
 

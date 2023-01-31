@@ -1,12 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="es">
+
+<%- include('../partials/head', {
+  title: "Agregar curso"
+}) %>
+
+  <body class="form">
+    <!-- encabezado -->
+    <%- include('../partials/header') %>
+
+      <!-- principal -->
+      <main class="form__main">
+        <h2>Formulario: Agregar Producto</h2>
+        <hr>
+        <div class="row">
+          <div class="col-12 col-md-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <form action="" class="row">
+                  <div class="col-10 mb-3">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" placeholder="Título del curso" name="title">
+                  </div>
+                  <div class="col-2 mb-3">
+                    <label for="price" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="price" name="price">
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="chef" class="form-label">Chef</label>
+                    <select name="chef" id="chef" class="form-control">
+                      <option value="" selected hidden>Seleccione...</option>
+                      <% chefs.forEach(({name}) => { %>
+                       <option value="<%= name %>"><%= name %> </option>
+                      <% }) %>
+                    </select>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- pie de pagina -->
+
+      <%- include('../partials/footer') %>
+
+
+        <%- include('../partials/scripts') %>
+
+          <script src="/javascripts/home.js"></script>
+
+  </body>
+
 </html>

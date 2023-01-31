@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <%- include('../partials/head') %>
 
@@ -12,23 +12,14 @@
      
         <!-- productos -->
         <section class="home__main__section--productos">
-         <% courses.forEach(({titulo, precio, descripcion,chef,image,id}) => { %>
-          <article class="home__main__section__article animate__animated">
-            <div class="home__main__section__article--imagen">
-              <img class="home__main__section__article--imagen-product" src="/images/cursos/<%= image %> " alt="">
-              <img class="home__main__section__article--imagen-sticker" src="/images/img-nuevo.png" alt="">
-              <a class="home__main__section__article--imagen-zoom" href="">ampliar foto</a>
-            </div>
-            <div class="home__main__section__article--contenido">
-              <h4> <%= titulo %>  </h4>
-              <p><%= descripcion %> </p>
-              <a href="/courses/detail/<%= id %>">ver más</a>
-            </div>
-          </article>
+         <% courses.forEach(({titulo, precio, descripcion,chef,image,id,sale,free,new : newest}) => { %>
+          <%- include("../partials/courseArticle", {
+            title,
+            image,
+            id,
+            sticker :  newest ? "img-nuevo.png" : sale ? "img-descuento.png" : "img-gratis.png"
+          }) %> 
          <% }) %>
-
-        
-         
         </section>
            <!-- botón de whatsapp -->
 

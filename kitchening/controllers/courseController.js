@@ -1,4 +1,5 @@
 const courses = require('../data/courses.json');
+const chefs = require("../data/chefs.json");
 
 
 module.exports = {
@@ -20,6 +21,12 @@ module.exports = {
   },
 
   add : (req, res) => {
-    return res.render("courses/formAdd")
-  }
+    return res.render("courses/formAdd", {
+      chefs
+    })
+  },
+
+  edit : (req, res) => {
+    return res.render("courses/formEdit")
+  },
 };
