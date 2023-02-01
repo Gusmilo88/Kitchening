@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('../partials/head') %>
-<body>
+
+<%- include('../partials/head', {
+  title: "Agregar curso"
+}) %>
+
+  <body class="form">
+    <!-- encabezado -->
     <%- include('../partials/header') %>
-    <h2>Detalle del curso:</h2> 
-    <article class="home__main__section__article animate__animated">
-        <div class="home__main__section__article--imagen">
-          <img class="home__main__section__article--imagen-product" src="/images/cursos/<%= course.image %> " alt="">
-          <img class="home__main__section__article--imagen-sticker" src="/images/img-nuevo.png" alt="">
-          <a class="home__main__section__article--imagen-zoom" href="">ampliar foto</a>
+
+      <!-- principal -->
+      <main class="form__main">
+        <h2>Detalle curso</h2>
+        <hr>
+        <div class="row">
+          <div class="col-12 col-md-8 mx-auto">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="/images/courses/<%= image %>" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= title %></h5>
+                    <p class="card-text"><%= description %></p>
+                    <div class="d-flex gap-2">
+                      <a class="btn btn-success" href="/courses/edit/<%= id %>">Editar</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="home__main__section__article--contenido">
-          <h4> <%= course.titulo %>  </h4>
-          <p><%= course.descripcion %> </p>
-        </div>
-      </article>
-    
-    <%- include('../partials/whatsApp') %>
+      </main>
+      <!-- pie de pagina -->
 
-    <%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>
 
 
-    <%- include('../partials/scripts') %>
+        <%- include('../partials/scripts') %>
 
-      <script src="/javascripts/home.js"></script>
-</body>
+          <script src="/javascripts/home.js"></script>
+
+  </body>
+
 </html>
