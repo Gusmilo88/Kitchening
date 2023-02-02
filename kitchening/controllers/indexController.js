@@ -6,7 +6,7 @@ module.exports = {
         const newCourses = courses.filter(course => course.newest);
         const saleCourses = courses.filter(course => course.sale);
         
-        return res.render('home',{
+        return res.render("home",{
           title : "Kitchening | Home",
           courses,
           newCourses,

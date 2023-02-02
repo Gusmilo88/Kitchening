@@ -1,5 +1,5 @@
 const fs = require("fs");
-const courses = require('../data/courses.json');
+const courses = require("../data/courses.json");
 const chefs = require("../data/chefs.json");
 const chefsSorts = chefs.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
 
@@ -28,16 +28,6 @@ module.exports = {
     })
   },
 
-  edit : (req, res) => {
-    const { id } = req.params;
-
-    const course = courses.find(course => course.id === +id);
-    return res.render("courses/formEdit", {
-      ...course,
-      chefs: chefsSorts
-    })
-  },
-
   store : (req, res) => {
     // voy a guardar la info del curso
 
@@ -61,5 +51,20 @@ module.exports = {
     fs.writeFileSync("./data/courses.json", JSON.stringify(courses, null, 3), "utf-8")
 
     return res.redirect("/courses/list");
+  },
+
+  edit : (req, res) => {
+    const { id } = req.params;
+
+    const course = courses.find(course => course.id === +id);
+    return res.render("courses/formEdit", {
+      ...course,
+      chefs: chefsSorts
+    })
+  },
+
+  update : (req, res) => {
+    
+    return res.send(req.body)
   }
 };
