@@ -30,6 +30,7 @@ module.exports = {
   },
 
   store : (req, res) => {
+
     // voy a guardar la info del curso
 
     const {title, precio, description, section, chef, visible, } = req.body;
