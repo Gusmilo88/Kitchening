@@ -94,29 +94,5 @@
       "newest": true,
       "free": false,
       "visible": true
-   },
-   {
-      "id": 9,
-      "title": "",
-      "precio": null,
-      "description": "",
-      "image": null,
-      "chef": "",
-      "sale": false,
-      "newest": false,
-      "free": false,
-      "visible": false
-   },
-   {
-      "id": 10,
-      "title": "as",
-      "precio": null,
-      "description": "",
-      "image": null,
-      "chef": "",
-      "sale": false,
-      "newest": false,
-      "free": false,
-      "visible": false
    }
 ]

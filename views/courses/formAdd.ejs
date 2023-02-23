@@ -18,26 +18,30 @@
             <div class="card">
               <div class="card-body">
                 <form action="" class="row" method="POST" enctype="multipart/form-data">
-                  <div class="col-10 mb-3">
+                  <div class="col-8 mb-3">
                     <label for="title" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="title" placeholder="Título del curso" name="title">
+                    <input type="text" class="form-control <%= locals.errors && errors.title ? 'is-invalid' : null %>" id="title" placeholder="Título del curso" name="title" value="<%= locals.old && old.title ? old.title : null %>">
+                    <small class="text-danger ms-2"><%= locals.errors && locals.errors.title ? locals.errors.title.msg : null%></small>
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-4 mb-3">
                     <label for="price" class="form-label">Precio</label>
-                    <input type="number" class="form-control" id="price" name="price">
+                    <input type="number" class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>" id="price" name="price" value="<%= locals.old && old.price ? old.price : null %>">
+                    <small class="text-danger ms-2"><%= locals.errors && locals.errors.price ? locals.errors.price.msg : null%></small>
                   </div>
                   <div class="col-12 mb-3">
                     <label for="chef" class="form-label">Chef</label>
-                    <select name="chef" id="chef" class="form-control">
+                    <select name="chef" id="chef" class="form-control <%= locals.errors && errors.chef ? 'is-invalid' : null %>">
                       <option value="" selected hidden>Seleccione...</option>
                       <% chefs.forEach(({name}) => { %>
-                        <option value="<%= name %>"><%= name %> </option>
+                        <option value="<%= name %>" <%= locals.old && old.chef && old.chef === name ? 'selected' : null %>><%= name %></option>
                       <% }) %>
                     </select>
+                    <small class="text-danger ms-2"><%= locals.errors && locals.errors.chef ? locals.errors.chef.msg : null%></small>
                   </div>
                   <div class="col-12 mb-3">
                     <label for="description" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                    <textarea class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>" id="exampleFormControlTextarea1" rows="3" name="description"><%= locals.old && old.description ? old.description : null %></textarea>
+                    <small class="text-danger ms-2"><%= locals.errors && locals.errors.description ? locals.errors.description.msg : null%></small>
                   </div>
                   <div class="col-12 mb-3">
                     <div class="d-flex justify-content-around">
@@ -60,6 +64,7 @@
                         </label>
                       </div>
                     </div>
+                    <small class="text-danger ms-2"><%= locals.errors && locals.errors.section ? locals.errors.section.msg : null%></small>
                   </div>
                   <div class="col-3 mb-3 d-flex justify-content-center align-items-end">
                     <div class="form-check form-switch">

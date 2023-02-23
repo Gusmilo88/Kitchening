@@ -1,3 +1,5 @@
+const {validationResult} = require("express-validator")
+
 const fs = require("fs");
 const courses = require("../data/courses.json");
 const chefs = require("../data/chefs.json");
@@ -31,28 +33,41 @@ module.exports = {
 
   store : (req, res) => {
 
-    // voy a guardar la info del curso
+    const errors = validationResult(req)
 
-    const {title, precio, description, section, chef, visible, } = req.body;
+    if(errors.isEmpty()){
+      const {title, precio, description, section, chef, visible, } = req.body;
 
-    const newCourse = {
-        id : courses[courses.length - 1].id + 1,
-        title : title.trim(),
-        precio : +precio,
-        description : description.trim(),
-        image : null,
-        chef,
-        sale : section === "sale" && true,
-        newest : section === "newest" && true,
-        free : section === "free" && true,
-        visible : visible ? true : false,
+      const newCourse = {
+          id : courses[courses.length - 1].id + 1,
+          title : title.trim(),
+          precio : +precio,
+          description : description.trim(),
+          image : req.file ? req.file.filename : null,
+          chef,
+          sale : section === "sale" && true,
+          newest : section === "newest" && true,
+          free : section === "free" && true,
+          visible : visible ? true : false,
+      }
+  
+      courses.push(newCourse);
+  
+      fs.writeFileSync("./data/courses.json", JSON.stringify(courses, null, 3), "utf-8")
+  
+      return res.redirect("/courses/list");
+    }else {
+      
+      const chefs = require("../data/chefs.json");
+      const chefsSorts = chefs.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
+      return res.render("courses/formAdd", {
+        chefs : chefsSorts,
+        errors : errors.mapped(),
+        old : req.body
+      })
+
     }
 
-    courses.push(newCourse);
-
-    fs.writeFileSync("./data/courses.json", JSON.stringify(courses, null, 3), "utf-8")
-
-    return res.redirect("/courses/list");
   },
 
   edit : (req, res) => {
