@@ -12,7 +12,10 @@ const storageCourseImages = multer.diskStorage({
 })
 
 const upLoadcoursesImages = multer({
-    storage : storageCourseImages
+    storage : storageCourseImages,
+    limits : {
+        files : 3
+    }
 })
 
 module.exports = {

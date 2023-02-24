@@ -35,16 +35,26 @@ module.exports = {
 
     const errors = validationResult(req)
 
-    if(!req.file){
+    if(!req.files.length){
       errors.errors.push({
         value : "",
-        msg : "El producto debe tener una imagen",
-        param : "image",
-        location : "file"
+        msg : "El producto debe tener por lo menos una imagen",
+        param : "images",
+        location : "files"
+      })
+    }
+
+    if(req.multerError){
+      errors.errors.push({
+        value : "",
+        msg : "Solo puede subir hasta 3 imágenes",
+        param : "images",
+        location : "files"
       })
     }
 
     if(errors.isEmpty()){
+      const courses = readJSON("courses.json")
       const {title, price, description, section, chef, visible, } = req.body;
 
       const newCourse = {
@@ -52,7 +62,7 @@ module.exports = {
           title : title.trim(),
           price : +price,
           description : description.trim(),
-          image : req.file ? req.file.filename : null,
+          image : req.files.map(file => file.filename),
           chef,
           sale : section === "sale" && true,
           newest : section === "newest" && true,
@@ -67,8 +77,12 @@ module.exports = {
       return res.redirect("/courses/list");
     }else {
       
-      if(req.file){
-        fs.existsSync(`./public/images/courses/${req.file.filename}`) && fs.unlinkSync(`./public/images/courses/${req.file.filename}`)
+      if(req.files.length){
+        req.files.forEach(file => {
+          
+          fs.existsSync(`./public/images/courses/${file.filename}`) && fs.unlinkSync(`./public/images/courses/${file.filename}`)
+
+        });
       }
 
       const chefs = require("../data/chefs.json");

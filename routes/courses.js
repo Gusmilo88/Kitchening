@@ -12,7 +12,20 @@ router
     .get("/list",list)
     .get("/detail/:id",detail)
     .get("/add",add)
-    .post("/add", upLoadcoursesImages.single('image'), addCourseValidator,store)
+    .post("/add",
+
+    (req, res, next) => {
+
+        const upload = upLoadcoursesImages.array("images")
+
+        upload(req, res, function(error) {
+            if(error){
+                req.multerError = error.message
+            }
+            next()
+        })
+
+     },addCourseValidator,store)
     .get("/edit/:id",edit)
     .put("/update/:id", upLoadcoursesImages.single('image'), editCourseValidator, update)
     .get("/remove/:id", removeConfirm)
