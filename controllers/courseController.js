@@ -35,13 +35,22 @@ module.exports = {
 
     const errors = validationResult(req)
 
+    if(!req.file){
+      errors.errors.push({
+        value : "",
+        msg : "El producto debe tener una imagen",
+        param : "image",
+        location : "file"
+      })
+    }
+
     if(errors.isEmpty()){
-      const {title, precio, description, section, chef, visible, } = req.body;
+      const {title, price, description, section, chef, visible, } = req.body;
 
       const newCourse = {
           id : courses[courses.length - 1].id + 1,
           title : title.trim(),
-          precio : +precio,
+          price : +price,
           description : description.trim(),
           image : req.file ? req.file.filename : null,
           chef,
@@ -58,6 +67,10 @@ module.exports = {
       return res.redirect("/courses/list");
     }else {
       
+      if(req.file){
+        fs.existsSync(`./public/images/courses/${req.file.filename}`) && fs.unlinkSync(`./public/images/courses/${req.file.filename}`)
+      }
+
       const chefs = require("../data/chefs.json");
       const chefsSorts = chefs.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
       return res.render("courses/formAdd", {
@@ -82,40 +95,54 @@ module.exports = {
 
   update : (req, res) => {
     /* Recibo la info del formulario */
+    const errors = validationResult(req);
 
-    const {title, precio, description, section, chef, visible} = req.body;
+    if(errors.isEmpty()) {
+      const {title, price, description, section, chef, visible} = req.body;
     
-    const id = +req.params.id;
+      const id = +req.params.id;
+  
+      // Recupero los datos del curso
+      const course = courses.find(course => course.id === +id);
+  
+      /* Guardo en un objeto la información modificada */
+      const courseUpdated = {
+        id,
+        title : title.trim(),
+        price : +price,
+        description : description.trim(),
+        image : course.image,
+        chef,
+        sale : section === "sale" && true,
+        newest : section === "newest" && true,
+        free : section === "free" && true,
+        visible : visible ? true : false,
+    }
+      /* Actualizar mi array de cursos */
+      const coursesModified = courses.map(course => {
+        if(course.id === +id){
+          return courseUpdated
+        }
+        return course
+      });
+  
+      /* Guardar los cambios */
+  
+      fs.writeFileSync("./data/courses.json", JSON.stringify(coursesModified, null, 3), "utf-8")
+  
+      return res.redirect(`/courses/detail/${id}`)
+    } else {
+      const { id } = req.params;
 
-    // Recupero los datos del curso
-    const course = courses.find(course => course.id === +id);
+      const course = courses.find(course => course.id === +id);
+      return res.render("courses/formEdit", {
+      ...course,
+      chefs: chefsSorts,
+      errors : errors.mapped(),
+      old : req.body
+    })
+    }
 
-    /* Guardo en un objeto la información modificada */
-    const courseUpdated = {
-      id,
-      title : title.trim(),
-      precio : +precio,
-      description : description.trim(),
-      image : course.image,
-      chef,
-      sale : section === "sale" && true,
-      newest : section === "newest" && true,
-      free : section === "free" && true,
-      visible : visible ? true : false,
-  }
-    /* Actualizar mi array de cursos */
-    const coursesModified = courses.map(course => {
-      if(course.id === +id){
-        return courseUpdated
-      }
-      return course
-    });
-
-    /* Guardar los cambios */
-
-    fs.writeFileSync("./data/courses.json", JSON.stringify(coursesModified, null, 3), "utf-8")
-
-    return res.redirect(`/courses/detail/${id}`)
   },
 
   removeConfirm : (req, res) => {

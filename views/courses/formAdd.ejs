@@ -76,6 +76,7 @@
                   <div class="col-9 mb-3">
                     <label for="image" class="form-label">Imagen</label>
                     <input type="file" class="form-control" id="image" name="image"></input>
+                    <small class="text-danger ms-2"><%= locals.errors && locals.errors.image ? locals.errors.image.msg : null%></small>
                   </div>
                   <div class="d-flex justify-content-end">
                     <button type="submit" class="buttons buttons__primary">Crear curso</button>
