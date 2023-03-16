@@ -1,11 +1,13 @@
-module.export = {
+require("dotenv").config()
+
+module.exports = {
   development: {
-    username: "root", 
-    password: "root", // Password al momento de instalarlo
-    database: "kitchening_db", // Nombre de la base de datos con la que nos vamos a conectar
-    host: "127.0.0.1",
+    username: process.env.DB_USERNAME, 
+    password: process.env.DB_PASSWORD, // Password al momento de instalarlo
+    database: process.env.DB_DATABASE, // Nombre de la base de datos con la que nos vamos a conectar
+    host: process.env.DB_HOST,
     dialect: "mysql", // Lenguaje
-    port: 3306, //Puerto
+    port: process.env.DB_PORT, //Puerto
   },
   test: {
     username: "root",
