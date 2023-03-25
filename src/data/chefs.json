@@ -3,76 +3,91 @@
     {
         "id" : 1,
         "name" : "Roberto Nishida",
-        "photo" : null
+        "photo" : null,
+        "country" : "Japón"
     },
     {
         "id" : 2,
         "name" : "Guillermo Calabrese",
-        "photo" : null
+        "photo" : null,
+        "country" : "Italia"
     },
     {
         "id" : 3,
         "name" : "Cubano Vega",
-        "photo" : null
+        "photo" : null,
+        "country" : "Cuba"
     },
     {
         "id" : 4,
         "name" : "Mariano Martini",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 5,
         "name" : "Gustavo Nari",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 6,
         "name" : "Hernán Pérez Velásquez",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 7,
         "name" : "Borja Blazquez",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 8,
         "name" : "Silvia Di Ciancio",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 9,
         "name" : "Fabian Mahr",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 10,
         "name" : "Ariel Gravano",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 11,
         "name" : "Roberto Petersen",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 12,
         "name" : "Mauro Massimino",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 13,
         "name" : "Leandro Palmeiro",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 14,
         "name" : "Olivier Falchi",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     },
     {
         "id" : 15,
         "name" : "Luis Badillo",
-        "photo" : null
+        "photo" : null,
+        "country" : "Argentina"
     }
 ]
