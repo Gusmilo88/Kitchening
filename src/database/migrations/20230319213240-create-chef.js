@@ -15,11 +15,11 @@ module.exports = {
       photo: {
         type: Sequelize.STRING
       },
-      country: {
-        type: Sequelize.STRING
+      country : {
+        type : Sequelize.STRING
       },
       createdAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
@@ -29,7 +29,7 @@ module.exports = {
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE
-      },
+      }
     });
   },
   async down(queryInterface, Sequelize) {

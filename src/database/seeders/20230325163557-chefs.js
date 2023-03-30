@@ -2,12 +2,12 @@
 
 /** @type {import('sequelize-cli').Migration} */
 
-const chefs = require("../../data/chefs.json");
+const chefs = require('../../data/chefs.json');
 
-const chefsUpdate = chefs.map( ({name, country}) => {
+const chefsUpdated = chefs.map(({name,photo,country}) => {
   return {
     name,
-    photo : null,
+    photo,
     country,
     createdAt : new Date()
   }
@@ -15,14 +15,14 @@ const chefsUpdate = chefs.map( ({name, country}) => {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-
-    await queryInterface.bulkInsert('Chefs', chefsUpdate, {});
     
+     await queryInterface.bulkInsert('Chefs',chefsUpdated, {});
+  
   },
 
   async down (queryInterface, Sequelize) {
-
-      await queryInterface.bulkDelete('Chefs', null, {});
-     
+   
+    await queryInterface.bulkDelete('Chefs', null, {});
+   
   }
 };

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Chef.init({
     name: DataTypes.STRING,
     photo: DataTypes.STRING,
-    country: DataTypes.STRING,
+    country : DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Chef',
